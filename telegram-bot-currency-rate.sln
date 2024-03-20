@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "telegram-bot-currency-rate", "telegram-bot-currency-rate.csproj", "{615830AA-0DEE-4867-8B08-DB5A2BBCD5FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{615830AA-0DEE-4867-8B08-DB5A2BBCD5FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615830AA-0DEE-4867-8B08-DB5A2BBCD5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615830AA-0DEE-4867-8B08-DB5A2BBCD5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615830AA-0DEE-4867-8B08-DB5A2BBCD5FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28D3E4A0-E70E-4CF0-A40E-F53B2321DA2B}
+	EndGlobalSection
+EndGlobal
