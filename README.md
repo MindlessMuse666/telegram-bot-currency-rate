@@ -1,4 +1,4 @@
-# Телеграм-бот для получения курса валют с **Coinmarketcap** (RU)
+# 👨‍💻 Телеграм-бот для получения курса валют с **Coinmarketcap** (RU)
 
 В этом проекте я реализовал телеграмм-бота на языке C# с помощью библиотеки **"Telegram.Bot"**. Этот бот присылает текущий курс выбранной по запросу пользователя криптовалюты (BTC, ETH, BNB, DOGE), используя API Coinmarketcap. Бот округляет стоимость валюты до трёх знаков после запятой.
 
@@ -18,7 +18,7 @@
    ```
 #### 3. Сохраните и запустите приложение.
 ---
-# Telegram bot for getting currency rates from **Coinmarketcap** (ENG)
+# 👨‍💻 Telegram bot for getting currency rates from **Coinmarketcap** (ENG)
 
 In this project I have implemented a Telegram bot in C# language using **"Telegram.Bot "** library. This bot sends the current exchange rate of the selected cryptocurrency (BTC, ETH, BNB, DOGE) using Coinmarketcap API. The bot rounds the currency value to three decimal places.
 
@@ -37,3 +37,4 @@ In this project I have implemented a Telegram bot in C# language using **"Telegr
    }
    ```
 #### 3. Save and run the application.
+---
