@@ -1,6 +1,6 @@
 using System.Text.Json.Nodes;
 
-namespace telegram_bot_currency_rate.Scpripts;
+namespace telegram_bot_currency_rate.Scripts;
 
 public static class CoinMarketCap
 {

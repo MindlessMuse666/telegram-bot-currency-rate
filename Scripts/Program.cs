@@ -1,4 +1,4 @@
-﻿namespace telegram_bot_currency_rate.Scpripts;
+﻿namespace telegram_bot_currency_rate.Scripts;
 
 public class Program
 {

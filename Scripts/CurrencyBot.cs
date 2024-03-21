@@ -5,7 +5,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
-namespace telegram_bot_currency_rate.Scpripts;
+namespace telegram_bot_currency_rate.Scripts;
 
 public class CurrencyBot
 {
