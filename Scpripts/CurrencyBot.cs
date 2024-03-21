@@ -1,4 +1,5 @@
 using Telegram.Bot;
+using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -67,6 +68,7 @@ public class CurrencyBot
                 await HandleMessageAsync(update, cancellationToken);
                 break;
             case UpdateType.CallbackQuery:
+                await HandleCallbackQueryAsync(update, cancellationToken);
                 break;
         }
     }
@@ -103,7 +105,17 @@ public class CurrencyBot
 
     private async Task DeleteMessage(long chatId, int messageId, CancellationToken cancellationToken)
     {
-        await _telegramBotClient.DeleteMessageAsync(chatId, messageId, cancellationToken);
+        try
+        {
+            await _telegramBotClient.DeleteMessageAsync(chatId, messageId, cancellationToken);
+        }
+        catch (ApiRequestException exception)
+        {
+            if (exception.ErrorCode == 400)
+            {
+                Console.WriteLine("User deleted message");
+            }
+        }
     }
 
     private bool IsStartCommand(string messageText) => messageText.ToLower() == CustomBotCommands.START;
@@ -171,10 +183,30 @@ public class CurrencyBot
             await SendCurrencyPriceAsync(chatId, callbackData, cancellationToken);
             return;
         }
+
+        if (callbackData == CustomCallbackData.RETURN_TO_CURRENCIES_MENU)
+        {
+            await ShowCurrencySelectionAsync(chatId, cancellationToken);
+        }
     }
 
-    private async Task SendCurrencyPriceAsync(long? chatId, string callbackData, CancellationToken cancellationToken)
+    private async Task SendCurrencyPriceAsync(long? chatId, string currencyCode, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var price = await CoinMarketCap.GetPriceAsync(currencyCode);
+
+        var inlineKeyboard = new InlineKeyboardMarkup(new[]
+        {
+            new[]
+            {
+                InlineKeyboardButton.WithCallbackData("Выбрать другую валюту.",
+                    CustomCallbackData.RETURN_TO_CURRENCIES_MENU)
+            }
+        });
+
+        await _telegramBotClient.SendTextMessageAsync(
+            chatId,
+            text: $"Валюта: {currencyCode}, стоимость: {Math.Round(price, 3)}$",
+            replyMarkup: inlineKeyboard,
+            cancellationToken: cancellationToken);
     }
 }
